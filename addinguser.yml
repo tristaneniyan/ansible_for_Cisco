@@ -1,0 +1,15 @@
+---
+
+- name: getting configuration
+  hosts: s1
+  gather_facts: false
+
+  tasks:
+    - name: executing conf terminal
+      raw: "conf t"
+
+    - name: adding user
+      raw: "username user2 password cisco"
+
+    - name: setting privilege
+      raw: "user admin privilege 15"
