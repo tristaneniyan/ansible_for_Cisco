@@ -1,0 +1,16 @@
+---
+
+- name: getting configuration
+  hosts: router
+  gather_facts: false
+
+  tasks:
+    - name: executing conf terminal
+      raw: "conf t"
+
+    - name: adding user
+      raw: "username {{guest_user}} password {{guest_pwd}}"
+
+    - name: setting privilege
+      raw: "user {{guest_user}} privilege 15"
+
