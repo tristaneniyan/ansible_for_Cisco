@@ -5,11 +5,11 @@ Here I have merged some basic operations which was essential in every network en
 
 
 
-I'll keep on adding to this repo.
+I'll keep on adding to this repo and if you want playbooks for any operrations in network feel free to comment.
 
 
 
 PS:
-Kidnly follow for more updates and feel free to post issues and doubts regarding my scripts and general doubts in ansible and python.
+Kindly follow for more updates and feel free to post issues and doubts regarding my scripts and general doubts in ansible and python.
 
 Have any doubts on setting up ansible env or setting up inventoy files for ansible or need to have clear knowledge on Host_vars and group_vars in ansible ping me anytime
