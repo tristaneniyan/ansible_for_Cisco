@@ -1,0 +1,15 @@
+---
+
+- name: get interface info
+  hosts: s1
+  gather_facts: false
+
+  tasks:
+    - name: executing commands
+      raw: "sh ip int br"
+      register: result
+
+    - name: print result
+      debug:
+        var: result.stdout_lines
+
