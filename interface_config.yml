@@ -1,0 +1,28 @@
+---
+
+  - name: Interface config
+    gather_facts: false
+    hosts: all
+    connection: local
+  
+  - vars_prompt:
+      - name: int
+      - prompt: enter the interface
+      - private: no
+      
+      - name: vlan
+      - prompt: enter switchport vlan id
+      - private: no    
+    
+  -tasks:
+     - name: editing interface
+       ios_config:
+         - lines:
+             - interface {{int}}
+             - switchport mode access
+             - switchport access vlan {{vlan}}
+             - spaannigtree port-fast
+       register: output
+      
+     - name: printing output
+       debug: var:output.stdout_lines
