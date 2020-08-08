@@ -1,0 +1,19 @@
+---
+
+- name: get interface info
+  hosts: s1
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Creating OSPF 
+      ios_config:
+        lines:
+           - ip routing
+           - router ospf 1
+           - network 0.0.0.0 0.0.0.0 area 0
+      register: result
+
+    - name: print result
+      debug: 
+        var:result.stdout_lines
