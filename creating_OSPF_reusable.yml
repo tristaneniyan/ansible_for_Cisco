@@ -1,0 +1,36 @@
+---
+
+- name: get interface info
+  hosts: s1
+  gather_facts: false
+  connection: local
+
+  vars_prompt:
+    - name: id
+    - prompt: enter ospf id
+    - private: no
+    
+    - name: ip
+    - prompt: enter ospf i
+    - private: no
+    
+    - name: mask
+    - prompt: enter ospf mask
+    - private: no
+
+    - name: area
+    - prompt: enter ospf area num
+    - private: no
+    
+  tasks:
+    - name: Creating OSPF 
+      ios_config:
+        lines:
+           - ip routing
+           - router ospf {{id}}
+           - network {{ip}} {{mask}} area {{area}}
+      register: result
+
+    - name: print result
+      debug: 
+        var:result.stdout_lines
